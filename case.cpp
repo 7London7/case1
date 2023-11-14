@@ -12,6 +12,15 @@ long long itc_len(string str){
     }
     return k;
 }
+long long itc_math(int num){
+    int a, i = 0;
+while(num > 0){
+    a = num % 10 * i;
+    num = num / 10;
+    i++;
+}
+return a;
+}
 string itc_probdop(int num1, int bit,int code){
     int  d = 1, per, kol = 0, i = 0, ost, t, b = 1;
     char number, a;
@@ -51,31 +60,7 @@ while(ost > 0){
 }else{
 str[0] = '0';
 }
-while(sum > 0){
-   l = sum % 2 + '0';
-   str = l + str;
-    sum = sum / 2;
-}
-kol = itc_len(str);
-ost = bit - kol;
-while(ost > 0){
-    str = '0' + str;
-    --ost;
-}
- while(str[i] != '\0'){
-    if(str[i] == '1'){
-        str[i] = '0';
-    }else{
-    str[i] = '1';
-    }
-    i++;
- }
-if(num1 < 0){
-    str[0] = '1';
-}else{
-str[0] = '0';
-}
-return str;
+itc_math(num)
 }
 while(num > 0){
    number = num % 2 + '0';
