@@ -51,13 +51,6 @@ while(ost > 0){
 }else{
 str[0] = '0';
 }
-int n, sum = 0;
-char ch[n];
-for(i = n - 1; i > -1; i--){
-   if(ch[i] == '1');
-   sum = sum + 2 * i;
-}
-sum = sum + 1;
 while(sum > 0){
    l = sum % 2 + '0';
    str = l + str;
