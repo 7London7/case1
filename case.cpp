@@ -19,7 +19,7 @@ string itc_probdop(int num1, int bit,int code){
 int num;
 string str = "";
 if(num1 < 0){
-num = -1 * num;
+num = -1 * num1;
 }else{
 num = num1;
 }
@@ -27,16 +27,6 @@ while(num > 0){
    number = num % 2 + '0';
    str = number + str;
     num = num / 2;
-}
-if(code == 3){
-    while(str[i] != '\0'){
-           if(str[i] == '1'){
-        str[i] = '0';
-    }else{
-    str[i] = '1';
-    }
-    i++;
-    }
 }
 kol = itc_len(str);
 ost = bit - kol;
@@ -61,5 +51,7 @@ if(code == 2){
     }
     i++;
  }
+ return str;
 }
 }
+
