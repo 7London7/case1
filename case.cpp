@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include "case.h"
+#include "case1.h"
 using namespace std;
 
 long long itc_len(string str){
@@ -12,17 +12,17 @@ long long itc_len(string str){
     }
     return k;
 }
-long long itc_math(int num){
-    int a, i = 0;
-while(num > 0){
-    a = num % 10 * i;
-    num = num / 10;
-    i++;
+long long itc_math(string str){
+    int a = 0, st = 1; int i = str.size()-1;
+while(i >= 0){
+    a = a +  (str[i] - '0') * st; //1 2 4 8
+    st = st * 2;
+    i--;
 }
 return a;
 }
 string itc_probdop(int num1, int bit,int code){
-    int  d = 1, per, kol = 0, i = 0, ost, t, b = 1;
+    int  d = 1, per, kol = 0, i = 0, ost, t, b;
     char number, a;
     char l;
 int num;
@@ -31,36 +31,6 @@ if(num1 < 0){
 num = -1 * num1;
 }else{
 num = num1;
-}
-if(code == 3){
-    while(num > 0){
-   t = t + (num % 2) * b;
-    num = num / 2;
-    b = b * 10;
-}
-   t = t + 1;
-   a = t + '0';
-    str = a + str;
-    kol = itc_len(str);
-ost = bit - kol;
-while(ost > 0){
-    str = '0' + str;
-    --ost;
-}
-    while(str[i] != '\0'){
-    if(str[i] == '1'){
-        str[i] = '0';
-    }else{
-    str[i] = '1';
-    }
-    i++;
- }
- if(num1 < 0){
-    str[0] = '1';
-}else{
-str[0] = '0';
-}
-itc_math(num)
 }
 while(num > 0){
    number = num % 2 + '0';
@@ -97,5 +67,32 @@ str[0] = '0';
 }
  return str;
 }
-}
+if(code == 3){
+        while(str[i] != '\0'){
+    if(str[i] == '1'){
+        str[i] = '0';
+    }else{
+    str[i] = '1';
+    }
+    i++;
+ }
 
+     if(num1 < 0){
+    str[0] = '1';
+}else{
+str[0] = '0';
+}
+    t = itc_math(str);
+
+  t = t + 1;
+  str = "";
+  while(t > 0){
+   a = t % 2 + '0';
+   str = a + str;
+    t = t / 2;
+  }
+
+  return str;
+}
+return 0;
+}
