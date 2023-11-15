@@ -5,4 +5,5 @@
 using namespace std;
 string itc_probdop(int num, int bit, int code);
 long long itc_len(string str);
+long long itc_math(string str);
 #endif // CASE_H_INCLUDED
