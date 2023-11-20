@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include "case1.h"
+#include "case.h"
 using namespace std;
 
 long long itc_len(string str){
@@ -22,11 +22,11 @@ while(i >= 0){
 return a;
 }
 string itc_probdop(int num1, int bit,int code){
-    int  d = 1, per, kol = 0, i = 0, ost, t, b;
+    int kol = 0, i = 0, ost, t;
     char number, a;
-    char l;
 int num;
 string str = "";
+string str2 = "";
 if(num1 < 0){
 num = -1 * num1;
 }else{
@@ -49,9 +49,19 @@ if(num1 < 0){
 str[0] = '0';
 }
 if(code == 1){
-    return str;
+
+        for(i = 0; i < bit; i++){
+         str2 = str2 + str[i];
+        }
+    return str2;
 }
 if(code == 2){
+    if(num1 > 0){
+for(i = 0; i < bit; i++){
+         str2 = str2 + str[i];
+        }
+    return str2;
+}else{
  while(str[i] != '\0'){
     if(str[i] == '1'){
         str[i] = '0';
@@ -65,9 +75,19 @@ if(code == 2){
 }else{
 str[0] = '0';
 }
- return str;
+ for(i = 0; i < bit; i++){
+         str2 = str2 + str[i];
+        }
+    return str2;
+}
 }
 if(code == 3){
+    if(num1 > 0){
+for(i = 0; i < bit; i++){
+         str2 = str2 + str[i];
+        }
+    return str2;
+}else{
         while(str[i] != '\0'){
     if(str[i] == '1'){
         str[i] = '0';
@@ -91,8 +111,15 @@ str[0] = '0';
    str = a + str;
     t = t / 2;
   }
-
-  return str;
+if(num1 < 0){
+    str = '1' + str;
+}else{
+str = '0' + str;
 }
-return 0;
+for(i = 0; i < bit; i++){
+         str2 = str2 + str[i];
+        }
+    return str2;
+}
+}
 }
